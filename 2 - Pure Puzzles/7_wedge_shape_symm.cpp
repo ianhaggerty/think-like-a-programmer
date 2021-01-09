@@ -4,7 +4,7 @@ using namespace std;
 
 void makeWedge(bool reverse)
 {
-  int i = -1, j;
+  int j, i = reverse ? 4 : 0;
 
   auto makeSpace = [&i, &j]() {
     for (j = 0; j < i; ++j)
@@ -13,7 +13,7 @@ void makeWedge(bool reverse)
     }
   };
 
-  while (++i < 4)
+  while (0 <= i && i <= 4)
   {
     makeSpace();
 
@@ -25,6 +25,7 @@ void makeWedge(bool reverse)
     makeSpace();
 
     cout << "\n";
+    reverse ? --i : ++i;
   }
 }
 
